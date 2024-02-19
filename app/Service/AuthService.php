@@ -127,6 +127,9 @@ class AuthService extends BaseService
                     $updateData['register_type'] = 3;
                     $updateData['mini_openid'] = $openid;
                 }
+                if($memberInfo['register_type'] == 4) {
+                    $updateData['mini_openid'] = $openid;
+                }
                 go(function ()use($updateData,$memberId){
                     Member::where('id', $memberId)->update($updateData);
                 });
